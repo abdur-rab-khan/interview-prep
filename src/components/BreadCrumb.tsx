@@ -56,8 +56,6 @@ function BreadCrumb() {
     .reduce(handleBreadCrumbPaths, [] as IPaths[]);
   const HomeIcon = navIcon[paths[0]?.path] ?? navIcon["default"];
 
-  console.log(paths);
-
   return (
     <div className="flex items-center gap-x-2.5 font-medium text-2xl capitalize mb-4">
       {HomeIcon && <HomeIcon className="text-3xl" />}
