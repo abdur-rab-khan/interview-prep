@@ -38,11 +38,16 @@ const BreadCrumbSegment = ({
     <React.Fragment>
       {idx !== lastIdx ? (
         <React.Fragment>
-          <Link href={`/${path}`}>{title}</Link>
-          <span className="cursor-default">/</span>
+          <Link
+            href={`/${path}`}
+            className="hover:text-blue-400 transition-colors duration-200"
+          >
+            {title}
+          </Link>
+          <span className="text-slate-600 font-light select-none">/</span>
         </React.Fragment>
       ) : (
-        <span className="cursor-default">{title}</span>
+        <span className="text-white font-bold select-none">{title}</span>
       )}
     </React.Fragment>
   );
@@ -56,18 +61,26 @@ function BreadCrumb() {
     .reduce(handleBreadCrumbPaths, [] as IPaths[]);
   const HomeIcon = navIcon[paths[0]?.path] ?? navIcon["default"];
 
+  if (paths.length === 0) return null;
+
   return (
-    <div className="flex items-center gap-x-2.5 font-medium text-2xl capitalize mb-4">
-      {HomeIcon && <HomeIcon className="text-3xl" />}
-      {paths.map(({ title, path }, idx) => (
-        <BreadCrumbSegment
-          key={path}
-          idx={idx}
-          path={path}
-          title={title}
-          lastIdx={paths.length - 1}
-        />
-      ))}
+    <div className="flex items-center gap-x-3 font-sans text-xl sm:text-2xl capitalize bg-slate-800/20 w-fit px-4 py-2 rounded-2xl border border-white/5 backdrop-blur-md">
+      <div className="p-1.5 bg-blue-500/10 rounded-lg">
+        {HomeIcon && (
+          <HomeIcon className="text-2xl sm:text-3xl text-blue-400" />
+        )}
+      </div>
+      <div className="flex items-center gap-x-2 text-slate-400">
+        {paths.map(({ title, path }, idx) => (
+          <BreadCrumbSegment
+            key={path}
+            idx={idx}
+            path={path}
+            title={title}
+            lastIdx={paths.length - 1}
+          />
+        ))}
+      </div>
     </div>
   );
 }

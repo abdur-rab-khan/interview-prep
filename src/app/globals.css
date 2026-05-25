@@ -23,3 +23,50 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+@layer components {
+  .btn-theme {
+    @apply relative flex items-center justify-center bg-slate-800 px-4 py-2.5 rounded-xl border border-slate-700/50 shadow-lg transition-all duration-300 active:scale-95 hover:bg-slate-700 hover:border-blue-500/50 hover:shadow-blue-500/10 hover:shadow-xl text-slate-200 font-medium;
+  }
+
+  .btn-theme-primary {
+    @apply relative flex items-center justify-center bg-blue-600 px-4 py-2.5 rounded-xl border border-blue-500 shadow-lg shadow-blue-500/20 transition-all duration-300 active:scale-95 hover:bg-blue-500 hover:shadow-blue-500/40 text-white font-semibold;
+  }
+
+  .input-theme {
+    @apply w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-hidden focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/10 transition-all duration-300 backdrop-blur-sm shadow-inner shadow-black/20;
+  }
+
+  .textarea-theme {
+    @apply w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-hidden focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/10 transition-all duration-300 backdrop-blur-sm shadow-inner shadow-black/20 min-h-[120px] resize-y;
+  }
+
+  .card-theme {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6 shadow-2xl;
+  }
+
+  .label-theme {
+    @apply block text-sm font-semibold text-slate-400 mb-2 ml-1 uppercase tracking-widest;
+  }
+
+  .glow-blue {
+    @apply absolute -inset-1 bg-blue-500/20 rounded-xl blur-sm transition-all duration-500;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}

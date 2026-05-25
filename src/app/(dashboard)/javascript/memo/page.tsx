@@ -1,7 +1,7 @@
 import React from "react";
 
 function MemoizationPage() {
-  return <div>It's memoization</div>;
+  return <div>It&apos;s memoization</div>;
 }
 
 export default MemoizationPage;

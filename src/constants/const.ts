@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import { BsDatabase, BsJavascript, BsTypescript } from "react-icons/bs";
 import { IoCodeSlashOutline, IoLogoReact } from "react-icons/io5";
+import { RiInputField } from "react-icons/ri";
 import { SiNodedotjs } from "react-icons/si";
 
 export const navIcon: Record<string, IconType> = {
@@ -34,7 +35,13 @@ export const navList = [
     icon: IoLogoReact,
     title: "React",
     path: "/react",
-    children: [],
+    children: [
+      {
+        title: "Chip",
+        path: "/react/chip",
+        icon: RiInputField,
+      },
+    ],
   },
   {
     icon: SiNodedotjs,
