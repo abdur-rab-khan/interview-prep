@@ -70,3 +70,27 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* Add this in your global CSS file */
+.code-block::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-block::-webkit-scrollbar-track {
+  background: #1e1e2e; /* matches dark navy background */
+  border-radius: 4px;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+  background: #3b3b52; /* slightly lighter than background */
+  border-radius: 4px;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: #4e4e6a; /* even lighter on hover */
+}
+
+.code-block::-webkit-scrollbar-corner {
+  background: #1e1e2e;
+}

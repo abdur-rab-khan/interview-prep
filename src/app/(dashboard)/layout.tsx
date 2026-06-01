@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 
 function HomeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="min-h-screen bg-slate-900 text-white">
+    <section className="h-screen bg-slate-900 text-white">
       <Nav />
       <Body>{children}</Body>
     </section>

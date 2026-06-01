@@ -1,11 +1,15 @@
-import React from "react";
+import { codeToHtml } from "shiki";
 
-function Code() {
+export default async function Code({ code }: { code: string }) {
+  const formattedCode = await codeToHtml(code, {
+    lang: "typescript",
+    theme: "night-owl",
+  });
+
   return (
-    <section>
-      <code>hello worldk</code>
-    </section>
+    <div
+      className="[&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:whitespace-pre-wrap xl:[&>pre]:wrap-break-word xl:[&>pre]:overflow-x-hidden"
+      dangerouslySetInnerHTML={{ __html: formattedCode }}
+    />
   );
 }
-
-export default Code;

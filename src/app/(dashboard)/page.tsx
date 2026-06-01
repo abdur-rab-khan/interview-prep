@@ -59,10 +59,7 @@ function HomePage() {
         <h2 className="text-xl font-semibold text-white mb-6 italic tracking-tight text-center">
           Form Layout Example
         </h2>
-        <form
-          className="max-w-xl mx-auto space-y-6"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="max-w-xl mx-auto space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="label-theme">First Name</label>

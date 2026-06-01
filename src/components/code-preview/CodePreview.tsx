@@ -1,12 +1,14 @@
 import React from "react";
 import Header from "./Header";
+import CodeContainer from "./Container";
 import Code from "./Code";
+import Section from "./Section";
 
 interface ICodePreviewProps {
   code: string;
   title: string;
   description: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 function CodePreview({
@@ -16,9 +18,16 @@ function CodePreview({
   description,
 }: ICodePreviewProps) {
   return (
-    <section>
+    <section className="flex flex-col size-full">
       <Header title={title} description={description} />
-      <Code />
+      <CodeContainer>
+        {children && (
+          <Section style="flex justify-center items-center">{children}</Section>
+        )}
+        <Section style="p-0!">
+          <Code code={code} />
+        </Section>
+      </CodeContainer>
     </section>
   );
 }

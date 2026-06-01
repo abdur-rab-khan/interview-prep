@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
 import { BsDatabase, BsJavascript, BsTypescript } from "react-icons/bs";
+import { CgPassword } from "react-icons/cg";
 import { IoCodeSlashOutline, IoLogoReact } from "react-icons/io5";
 import { RiInputField } from "react-icons/ri";
 import { SiNodedotjs } from "react-icons/si";
@@ -40,6 +41,11 @@ export const navList = [
         title: "Chip",
         path: "/react/chip",
         icon: RiInputField,
+      },
+      {
+        title: "Otp Input",
+        path: "/react/otp-input",
+        icon: CgPassword,
       },
     ],
   },

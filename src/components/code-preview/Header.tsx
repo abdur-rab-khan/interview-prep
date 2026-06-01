@@ -4,7 +4,7 @@ interface IHeaderProps {
 }
 
 const Header = ({ title, description }: IHeaderProps) => (
-  <header>
+  <header className="min-h-10 max-h-18">
     <h2 className="text-xl text-white">{title}</h2>
     <p className="text-sm font-light text-white/70">{description}</p>
   </header>
