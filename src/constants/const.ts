@@ -2,6 +2,7 @@ import type { IconType } from "react-icons";
 import { BsDatabase, BsJavascript, BsTypescript } from "react-icons/bs";
 import { CgPassword } from "react-icons/cg";
 import { IoCodeSlashOutline, IoLogoReact } from "react-icons/io5";
+import { LuListTodo } from "react-icons/lu";
 import { RiInputField } from "react-icons/ri";
 import { SiNodedotjs } from "react-icons/si";
 
@@ -46,6 +47,11 @@ export const navList = [
         title: "Otp Input",
         path: "/react/otp-input",
         icon: CgPassword,
+      },
+      {
+        title: "Todo App",
+        path: "/react/todo",
+        icon: LuListTodo,
       },
     ],
   },
