@@ -1,4 +1,4 @@
-import OtpInput from "@/preparation/react/otp-input/OtpInput";
+import OtpInput from "@/problems/react/otp-input/OtpInput";
 import CodePreview from "@/components/code-preview/CodePreview";
 import { getCodeFromPath } from "@/utils/utils";
 

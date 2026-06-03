@@ -1,5 +1,10 @@
 import type { IconType } from "react-icons";
-import { BsDatabase, BsJavascript, BsTypescript } from "react-icons/bs";
+import {
+  BsDatabase,
+  BsJavascript,
+  BsListNested,
+  BsTypescript,
+} from "react-icons/bs";
 import { CgPassword } from "react-icons/cg";
 import { IoCodeSlashOutline, IoLogoReact } from "react-icons/io5";
 import { LuListTodo } from "react-icons/lu";
@@ -52,6 +57,11 @@ export const navList = [
         title: "Todo App",
         path: "/react/todo",
         icon: LuListTodo,
+      },
+      {
+        title: "Nested Checkbox",
+        path: "/react/nested-checkbox",
+        icon: BsListNested,
       },
     ],
   },
