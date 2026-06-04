@@ -2,19 +2,20 @@
 import { useState } from "react";
 import nestedCheckboxesData, { CheckboxesType } from "./data";
 
+interface GlobalCheckedType {
+  [key: number]: boolean;
+}
+
 interface CheckboxProps {
-  id: number;
-  name: string;
-  depth?: number;
   checked: boolean;
-  onChecked: (id: number) => void;
+  checkbox: CheckboxesType;
+  onCheckboxToggle: (isChecked: boolean, checkbox: CheckboxesType) => void;
 }
 
 interface CheckboxParentProps {
-  depth?: number;
-  isParentActive?: boolean;
   checkbox: CheckboxesType;
-  onChildrenToggle?: (id: number) => void;
+  globalCheckedState: GlobalCheckedType;
+  onCheckboxToggle: (isChecked: boolean, checkbox: CheckboxesType) => void;
 }
 
 interface CheckboxContainerProps {
@@ -25,26 +26,16 @@ const NoCheckbox = () => {
   return <p>There is no checkboxes</p>;
 };
 
-const Checkbox = ({
-  id,
-  name,
-  checked,
-  onChecked,
-  depth = 0,
-}: CheckboxProps) => {
+const Checkbox = ({ checked, checkbox, onCheckboxToggle }: CheckboxProps) => {
+  const { id, name } = checkbox;
+
   return (
-    <label
-      htmlFor={id.toString()}
-      style={{
-        marginLeft: `${depth * 3}px`,
-      }}
-      className={"select-none"}
-    >
+    <label htmlFor={id.toString()} className={"select-none"}>
       <input
         id={id.toString()}
         type="checkbox"
         checked={checked}
-        onChange={() => onChecked(id)}
+        onChange={(evt) => onCheckboxToggle(evt.target.checked, checkbox)}
       />
       <span className="ml-2">{name}</span>
     </label>
@@ -53,63 +44,74 @@ const Checkbox = ({
 
 const CheckboxParent = ({
   checkbox,
-  depth = 0,
-  onChildrenToggle,
-  isParentActive = false,
+  onCheckboxToggle,
+  globalCheckedState,
 }: CheckboxParentProps) => {
-  const [activeChildren, setActiveChildren] = useState(new Set());
-
-  const isCurrentCheckboxActive =
-    isParentActive || activeChildren.size === checkbox.children?.length;
-
-  const handleChecked = (id: number) => {
-    if (onChildrenToggle) {
-      onChildrenToggle(id);
-    }
-  };
-
-  const handleToggleChildren = (id: number) => {
-    setActiveChildren((prevActiveChildren) => {
-      const prevActiveChildrenSet = new Set(prevActiveChildren);
-
-      if (prevActiveChildrenSet.has(id)) {
-        prevActiveChildrenSet.delete(id);
-      } else {
-        prevActiveChildrenSet.add(id);
-      }
-
-      return prevActiveChildrenSet;
-    });
-  };
-
   return (
-    <div>
+    <div className="px-5">
       <Checkbox
-        checked={isCurrentCheckboxActive}
-        depth={depth}
-        id={checkbox.id}
-        name={checkbox.name}
-        onChecked={handleChecked}
+        checkbox={checkbox}
+        onCheckboxToggle={onCheckboxToggle}
+        checked={globalCheckedState[checkbox.id] || false}
       />
-      {checkbox?.children?.map((childCheckbox) => (
-        <CheckboxParent
-          key={childCheckbox.id}
-          depth={depth + 8}
-          checkbox={childCheckbox}
-          isParentActive={isCurrentCheckboxActive}
-          onChildrenToggle={handleToggleChildren}
-        />
-      ))}
+      {checkbox?.children &&
+        checkbox.children.map((childCheckbox) => (
+          <CheckboxParent
+            key={childCheckbox.id}
+            checkbox={childCheckbox}
+            onCheckboxToggle={onCheckboxToggle}
+            globalCheckedState={globalCheckedState}
+          />
+        ))}
     </div>
   );
 };
 
 const CheckboxContainer = ({ checkboxes }: CheckboxContainerProps) => {
+  const [globalCheckedState, setGlobalCheckedState] =
+    useState<GlobalCheckedType>({});
+
+  const handleCheckboxToggle = (
+    isChecked: boolean,
+    currentCheckbox: CheckboxesType,
+  ) => {
+    setGlobalCheckedState((prevState) => {
+      const updatedCheckedState = {
+        ...prevState,
+        [currentCheckbox.id]: isChecked,
+      };
+
+      // Update children's
+      const updateChildren = (node: CheckboxesType) => {
+        if (node?.children) {
+          for (const child of node.children) {
+            updatedCheckedState[child.id] = isChecked;
+            if (child?.children) {
+              updateChildren(child);
+            }
+          }
+        }
+      };
+      updateChildren(currentCheckbox);
+
+      // TODO: Update Parent's
+      const updateParent = (node: CheckboxesType) => {};
+      updateParent(currentCheckbox);
+
+      return updatedCheckedState;
+    });
+  };
+
   return !checkboxes.length ? (
     <NoCheckbox />
   ) : (
     checkboxes.map((checkbox) => (
-      <CheckboxParent key={checkbox.id} checkbox={checkbox} />
+      <CheckboxParent
+        key={checkbox.id}
+        checkbox={checkbox}
+        onCheckboxToggle={handleCheckboxToggle}
+        globalCheckedState={globalCheckedState}
+      />
     ))
   );
 };
