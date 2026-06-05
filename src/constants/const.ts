@@ -6,6 +6,7 @@ import {
   BsTypescript,
 } from "react-icons/bs";
 import { CgPassword } from "react-icons/cg";
+import { FaBarsProgress } from "react-icons/fa6";
 import { IoCodeSlashOutline, IoLogoReact } from "react-icons/io5";
 import { LuListTodo } from "react-icons/lu";
 import { RiInputField } from "react-icons/ri";
@@ -62,6 +63,11 @@ export const navList = [
         title: "Nested Checkbox",
         path: "/react/nested-checkbox",
         icon: BsListNested,
+      },
+      {
+        title: "Progress Bar",
+        path: "/react/progress-bar",
+        icon: FaBarsProgress,
       },
     ],
   },
