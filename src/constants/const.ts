@@ -5,9 +5,13 @@ import {
   BsListNested,
   BsTypescript,
 } from "react-icons/bs";
-import { CgPassword } from "react-icons/cg";
+import { CgPassword, CgSandClock } from "react-icons/cg";
 import { FaBarsProgress } from "react-icons/fa6";
-import { IoCodeSlashOutline, IoLogoReact } from "react-icons/io5";
+import {
+  IoCodeSlashOutline,
+  IoLogoReact,
+  IoTimeOutline,
+} from "react-icons/io5";
 import { LuListTodo } from "react-icons/lu";
 import { RiInputField } from "react-icons/ri";
 import { SiNodedotjs } from "react-icons/si";
@@ -30,6 +34,16 @@ export const navList = [
         icon: BsDatabase,
         title: "Memo",
         path: "/javascript/memo",
+      },
+      {
+        icon: CgSandClock,
+        title: "Debouncing",
+        path: "/javascript/debounce",
+      },
+      {
+        icon: IoTimeOutline,
+        title: "Throttling",
+        path: "/javascript/throttling",
       },
     ],
   },

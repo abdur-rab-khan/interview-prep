@@ -9,9 +9,7 @@ function MemoizationPage() {
       title="Memoization"
       code={memoizationCode}
       description="Memoization stores computed results to avoid repeating expensive calculations."
-    >
-      <></>
-    </CodePreview>
+    />
   );
 }
 
