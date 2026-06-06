@@ -6,7 +6,9 @@ function Debounce() {
   const [count, setCount] = React.useState(0);
   const [btnCount, setBtnCount] = React.useState(0);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceFunction = useCallback(
+    // eslint-disable-next-line react-hooks/use-memo
     debounce(() => {
       setCount((prevCount) => prevCount + 1);
     }, 500),

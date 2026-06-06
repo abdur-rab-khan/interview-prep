@@ -16,8 +16,8 @@ function debounce<T>(cb: (args?: T[]) => void, delay: number) {
   };
 }
 
-const debounceFunction = debounce(() => {
-  console.log("Hello world");
-}, 500);
+// const debounceFunction = debounce(() => {
+//   console.log("Hello world");
+// }, 500);
 
 export default debounce;

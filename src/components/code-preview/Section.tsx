@@ -9,7 +9,7 @@ function Section({
 }) {
   return (
     <section
-      className={`code-block flex-1 min-w-90 p-3 max-h-full overflow-auto bg-[#001428] rounded-lg border border-slate-500/50 ${style}`}
+      className={`code-block size-full flex-1 overflow-auto rounded-lg border border-slate-500/50 bg-[#001428] p-3 ${style}`}
     >
       {children}
     </section>

@@ -40,14 +40,14 @@ const BreadCrumbSegment = ({
         <React.Fragment>
           <Link
             href={`/${path}`}
-            className="hover:text-blue-400 transition-colors duration-200"
+            className="transition-colors duration-200 hover:text-blue-400"
           >
             {title}
           </Link>
-          <span className="text-slate-600 font-light select-none">/</span>
+          <span className="font-light text-slate-600 select-none">/</span>
         </React.Fragment>
       ) : (
-        <span className="text-white font-bold select-none">{title}</span>
+        <span className="font-bold text-white select-none">{title}</span>
       )}
     </React.Fragment>
   );
@@ -64,10 +64,10 @@ function BreadCrumb() {
   if (paths.length === 0) return null;
 
   return (
-    <div className="flex items-center gap-x-3 font-sans text-xl sm:text-2xl capitalize bg-slate-800/20 w-fit px-4 py-2 rounded-2xl border border-white/5 backdrop-blur-md">
-      <div className="p-1.5 bg-blue-500/10 rounded-lg">
+    <div className="flex w-fit items-center gap-x-3 rounded-2xl border border-white/5 bg-slate-800/20 px-4 py-2 font-sans text-xl capitalize backdrop-blur-md sm:text-2xl">
+      <div className="rounded-lg bg-blue-500/10 p-1.5">
         {HomeIcon && (
-          <HomeIcon className="text-2xl sm:text-3xl text-blue-400" />
+          <HomeIcon className="text-2xl text-blue-400 sm:text-3xl" />
         )}
       </div>
       <div className="flex items-center gap-x-2 text-slate-400">

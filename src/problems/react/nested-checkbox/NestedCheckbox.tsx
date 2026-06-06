@@ -95,8 +95,8 @@ const CheckboxContainer = ({ checkboxes }: CheckboxContainerProps) => {
       updateChildren(currentCheckbox);
 
       // TODO: Update Parent's
-      const updateParent = (node: CheckboxesType) => {};
-      updateParent(currentCheckbox);
+      // const updateParent = (_: CheckboxesType) => {};
+      // updateParent(currentCheckbox);
 
       return updatedCheckedState;
     });
