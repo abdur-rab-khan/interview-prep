@@ -13,7 +13,7 @@ import {
   IoTimeOutline,
 } from "react-icons/io5";
 import { LuListTodo } from "react-icons/lu";
-import { RiInputField } from "react-icons/ri";
+import { RiInputField, RiPageSeparator } from "react-icons/ri";
 import { SiNodedotjs } from "react-icons/si";
 
 export const navIcon: Record<string, IconType> = {
@@ -82,6 +82,11 @@ export const navList = [
         title: "Progress Bar",
         path: "/react/progress-bar",
         icon: FaBarsProgress,
+      },
+      {
+        title: "Pagination",
+        path: "/react/pagination",
+        icon: RiPageSeparator,
       },
     ],
   },
