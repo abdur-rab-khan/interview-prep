@@ -18,7 +18,7 @@ function CodePreview({
   description,
 }: ICodePreviewProps) {
   return (
-    <section className="flex flex-col size-full">
+    <section className="flex size-full flex-col">
       <Header title={title} description={description} />
       <CodeContainer>
         {children && (

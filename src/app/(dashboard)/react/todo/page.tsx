@@ -1,4 +1,4 @@
-import Todo from "@/preparation/react/todo/Todo";
+import Todo from "@/problems/react/todo/Todo";
 import CodePreview from "@/components/code-preview/CodePreview";
 import { getCodeFromPath } from "@/utils/utils";
 

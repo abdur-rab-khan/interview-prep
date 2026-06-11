@@ -1,4 +1,4 @@
-import Chip from "@/preparation/react/chip/Chip";
+import Chip from "@/problems/react/chip/Chip";
 import CodePreview from "@/components/code-preview/CodePreview";
 import { getCodeFromPath } from "@/utils/utils";
 
