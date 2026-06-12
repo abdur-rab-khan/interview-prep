@@ -165,6 +165,16 @@ function PaginationContainer({ products }: { products: Product[] }) {
   const [limit, setLimit] = useState(DEFAULT_PAGE_LIMIT);
   const [pageNumber, setPageNumber] = useState(1);
 
+  // ⭐ You were not able to find this solution.
+  // So actually on pageNumber startIndex will be zero right,
+  //    StartIndex:
+  //                1 - 1 = 0 * 10 = 0;  --> Start at 0 t0 10 mean 0 to 9 products will shown
+  //                2 - 1 = 1 * 10 = 10; --> Start at 10 to 20 mean 10 to 19 mean 10 more products
+  //                3 - 1 = 2 * 10 = 20; --> Start at 20 to 30 mean 20 to 29 mean 10 more products
+
+  //    EndIndex: (startIndex + limit)
+  //              0 + limit (10) = 0 to 10
+  //              10 + limit (10) = 10 to 20
   const startIndex = (pageNumber - 1) * limit;
   const endIndex = startIndex + limit;
 
